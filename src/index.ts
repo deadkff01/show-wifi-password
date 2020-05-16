@@ -4,6 +4,7 @@
  */
 
 import wifiInfoWindows from './plataforms/windows';
+import wifiInfoLinux from './plataforms/linux';
 
 interface ObjLiteral {
   [key: string]: () => void;
@@ -11,6 +12,7 @@ interface ObjLiteral {
 
 const showWifiPassword: ObjLiteral = {
   win32: () => wifiInfoWindows(),
+  linux: () => wifiInfoLinux(),
   // TODO: linux and osx
 };
 
