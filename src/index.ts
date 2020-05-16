@@ -13,7 +13,7 @@ interface ObjLiteral {
 const showWifiPassword: ObjLiteral = {
   win32: () => wifiInfoWindows(),
   linux: () => wifiInfoLinux(),
-  // TODO: linux and osx
+  // TODO: osx
 };
 
 console.log('###### show-wifi-password ######');

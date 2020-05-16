@@ -1,4 +1,3 @@
-// TODO
 import execa from 'execa';
 
 async function getWifiPassword(ssid: string): Promise<void> {
