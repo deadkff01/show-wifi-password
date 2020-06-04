@@ -4,7 +4,7 @@ import { generateQrCode } from '../utils/qrcodeGenerator';
 const command = 'netsh';
 
 const splitPassword = (password: string): string =>
-  password?.split(':')[1]?.trim();
+  password.split(':')[1].trim();
 
 async function getWifiPassword(ssid: string): Promise<void> {
   try {
