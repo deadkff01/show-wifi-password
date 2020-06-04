@@ -30,6 +30,8 @@
     "typescript": "^3.8.3"
   },
   "dependencies": {
-    "@types/execa": "^2.0.0"
+    "@types/execa": "^2.0.0",
+    "@types/terminal-image": "^0.2.2",
+    "qrcode": "^1.4.4"
   }
 }
