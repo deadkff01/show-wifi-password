@@ -1,5 +1,5 @@
 import execa from 'execa';
-import { genetateQrCode } from '../utils/qrcodeGenerator';
+import { generateQrCode } from '../utils/qrcodeGenerator';
 
 const command = 'netsh';
 
@@ -17,7 +17,7 @@ async function getWifiPassword(ssid: string): Promise<void> {
     const passwordString =
       getContentKey ?? `Password: ${splitPassword(stdout.split('\n')[32])}`;
     console.log(passwordString);
-    genetateQrCode(`WIFI:T:WPA;S:${ssid};P:${splitPassword(passwordString)};`);
+    generateQrCode(`WIFI:T:WPA;S:${ssid};P:${splitPassword(passwordString)};`);
   } catch (e) {
     console.log(e);
   }
