@@ -3,8 +3,8 @@
  * @author deadkff01
  */
 
-import wifiInfoWindows from './plataforms/windows';
-import wifiInfoLinux from './plataforms/linux';
+import wifiInfoWindows from './platforms/windows';
+import wifiInfoLinux from './platforms/linux';
 
 interface ObjLiteral {
   [key: string]: () => void;
