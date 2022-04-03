@@ -17,7 +17,7 @@ async function getWifiPassword(ssid: string): Promise<void> {
     const passwordString =
       getContentKey ?? `Password: ${splitPassword(stdout.split('\n')[32])}`;
     console.log(passwordString);
-    generateQrCode(`WIFI:T:WPA;S:${ssid};P:${splitPassword(passwordString)};`);
+    await generateQrCode(`WIFI:T:WPA;S:${ssid};P:${splitPassword(passwordString)};`);
   } catch (e) {
     console.log(e);
   }
@@ -29,7 +29,7 @@ export default async function wifiInfoWindows(): Promise<void> {
     const { stdout } = await execa(command, args);
     const ssid = /^\s*SSID\s*: (.+)\s*$/gm.exec(stdout)?.[1];
     console.log(`WIFI SSID: ${ssid}`);
-    if (ssid) getWifiPassword(ssid);
+    if (ssid) await getWifiPassword(ssid);
   } catch (e) {
     console.log(e);
   }

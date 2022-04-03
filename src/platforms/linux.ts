@@ -11,7 +11,7 @@ async function getWifiPassword(ssid: string): Promise<void> {
     const { stdout } = await execa(command, args);
     const password = /^\s*(?:psk|password)=(.+)\s*$/gm.exec(stdout)?.[1];
     console.log(`Password: ${password}`);
-    generateQrCode(`WIFI:T:WPA;S:${ssid};P:${password};`);
+    await generateQrCode(`WIFI:T:WPA;S:${ssid};P:${password};`);
   } catch (e) {
     console.log(e);
   }
@@ -23,7 +23,7 @@ export default async function wifiInfoLinux(): Promise<void> {
     const args = ['--raw'];
     const { stdout } = await execa(command, args);
     console.log(`WIFI SSID: ${stdout}`);
-    getWifiPassword(stdout);
+    await getWifiPassword(stdout);
   } catch (e) {
     console.log(e);
     console.log('cannot get SSID');

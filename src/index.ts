@@ -5,6 +5,7 @@
 
 import wifiInfoWindows from './platforms/windows';
 import wifiInfoLinux from './platforms/linux';
+import wifiInfoOSX from './platforms/osx';
 
 interface ObjLiteral {
   [key: string]: () => void;
@@ -13,9 +14,11 @@ interface ObjLiteral {
 const showWifiPassword: ObjLiteral = {
   win32: () => wifiInfoWindows(),
   linux: () => wifiInfoLinux(),
-  // TODO: osx
+  darwin: () => wifiInfoOSX()
 };
 
 console.log('###### show-wifi-password ######');
+
+console.log(process.platform)
 
 showWifiPassword[process.platform]();
