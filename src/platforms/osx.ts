@@ -14,7 +14,7 @@ async function getWifiPassword(ssid: string): Promise<void> {
 
     const { stdout } = await execa(command, args);
     const password = /^\s*(?:psk|password)=(.+)\s*$/gm.exec(stdout)?.[1];
-    //console.log(`Password: ${stdout}`);
+    // console.log(`Password: ${stdout}`);
     await generateQrCode(`WIFI:T:WPA;S:${ssid};P:${password};`);
   } catch (e) {
     console.log(e);
